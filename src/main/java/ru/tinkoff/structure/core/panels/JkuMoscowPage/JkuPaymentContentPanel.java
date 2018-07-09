@@ -39,8 +39,8 @@ public class JkuPaymentContentPanel extends AbstractPanel {
         findBy(JKU_VALUE_INPUT).then().sendKeys("");
         findBy(SUBMIT_BUTTON).then().click();
         final WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 10);
-        webDriverWait.until(ExpectedConditions.attributeToBe(findBy(JKU_CODE_ERRORS_MASSEGE),"display","block"));
-        if(findBy(JKU_CODE_ERRORS_MASSEGE).equals(requredFieldsEmptyError) && findBy(JKU_PERIOD_ERRORS_MASSEGE).equals(requredFieldsEmptyError) && findBy(JKU_VALUE_ERRORS_MASSEGE).equals(requredFieldsEmptyError)){
+        webDriverWait.until(ExpectedConditions.attributeToBe(findBy(JKU_VALUE_ERRORS_MASSEGE),"display","block"));
+        if(findBy(JKU_CODE_ERRORS_MASSEGE).getText().equals(requredFieldsEmptyError) && findBy(JKU_PERIOD_ERRORS_MASSEGE).getText().equals(requredFieldsEmptyError) && findBy(JKU_VALUE_ERRORS_MASSEGE).getText().equals(requredFieldsEmptyError)){
             return true;
         }
         return false;
@@ -53,7 +53,7 @@ public class JkuPaymentContentPanel extends AbstractPanel {
         findBy(SUBMIT_BUTTON).then().click();
         final WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 10);
         webDriverWait.until(ExpectedConditions.attributeToBe(findBy(JKU_CODE_ERRORS_MASSEGE),"display","block"));
-        if(findBy(JKU_CODE_ERRORS_MASSEGE).equals(codeValueError)){
+        if(findBy(JKU_CODE_ERRORS_MASSEGE).getText().equals(codeValueError)){
             return true;
         }
         return false;
@@ -66,7 +66,7 @@ public class JkuPaymentContentPanel extends AbstractPanel {
         findBy(SUBMIT_BUTTON).then().click();
         final WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 10);
         webDriverWait.until(ExpectedConditions.attributeToBe(findBy(JKU_PERIOD_ERRORS_MASSEGE),"display","block"));
-        if(findBy(JKU_PERIOD_ERRORS_MASSEGE).equals(dateValuError)){
+        if(findBy(JKU_PERIOD_ERRORS_MASSEGE).getText().equals(dateValuError)){
             return true;
         }
         return false;
@@ -79,7 +79,7 @@ public class JkuPaymentContentPanel extends AbstractPanel {
         findBy(SUBMIT_BUTTON).then().click();
         final WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 10);
         webDriverWait.until(ExpectedConditions.attributeToBe(findBy(JKU_VALUE_ERRORS_MASSEGE),"display","block"));
-        if(findBy(JKU_VALUE_ERRORS_MASSEGE).equals(minLimitValueFieldError)){
+        if(findBy(JKU_VALUE_ERRORS_MASSEGE).getText().equals(minLimitValueFieldError)){
             return true;
         }
         return false;
@@ -92,7 +92,7 @@ public class JkuPaymentContentPanel extends AbstractPanel {
         findBy(SUBMIT_BUTTON).then().click();
         final WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 10);
         webDriverWait.until(ExpectedConditions.attributeToBe(findBy(JKU_VALUE_ERRORS_MASSEGE),"display","block"));
-        if(findBy(JKU_VALUE_ERRORS_MASSEGE).equals(minLimitValueFieldError)){
+        if(findBy(JKU_VALUE_ERRORS_MASSEGE).getText().equals(maxLimitValueFieldError)){
             return true;
         }
         return false;
@@ -105,7 +105,7 @@ public class JkuPaymentContentPanel extends AbstractPanel {
         findBy(SUBMIT_BUTTON).then().click();
         final WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 10);
         webDriverWait.until(ExpectedConditions.attributeToBe(findBy(JKU_VALUE_ERRORS_MASSEGE),"display","block"));
-        if(findBy(JKU_VALUE_ERRORS_MASSEGE).equals(lesserNullLimitValueError)){
+        if(findBy(JKU_VALUE_ERRORS_MASSEGE).getText().equals(lesserNullLimitValueError)){
             return true;
         }
         return false;

@@ -14,7 +14,6 @@ public class JkhPaymentContentPanel extends AbstractPanel {
         super(panelBaseLocation, driverDelegate);
     }
 
-    public String saveFind;
     private static final String JKU_PAYMENTS_BUTTON = "//li[@data-qa-file=\"UIMenuItemProvider\"][1]";
     private static final String JKU_PAYMENT_FORM = "//div[@data-qa-file=\"SubscriptionProvider\"]";
 
@@ -24,7 +23,6 @@ public class JkhPaymentContentPanel extends AbstractPanel {
     }
 
     public JkuMoscowPage getJkuMoscowPageAndSaveFinding(){
-        saveFind = findBy(JKU_PAYMENTS_BUTTON).getText();
         clickJkuPaymentButton();
         WebDriverWait wait = new WebDriverWait(getDriver(),10);
         wait.until(ExpectedConditions.attributeToBe(By.xpath(JKU_PAYMENT_FORM),"display","block"));
