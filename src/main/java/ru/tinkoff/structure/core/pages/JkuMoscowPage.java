@@ -24,7 +24,8 @@ public class JkuMoscowPage extends AbstractPage {
 
     public JkuPaymentContentPanel getJkuPaymentContentPanel(){
         clickJkuInMoscowTab();
-        withTimeoutOf(30, TimeUnit.SECONDS).waitFor(JKU_IN_MOSCOW_TAB_HEADER);
+        final WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 10);
+        webDriverWait.until(ExpectedConditions.attributeToBe(By.xpath(JKU_IN_MOSCOW_TAB_HEADER),"display","block"));
         return  new JkuPaymentContentPanel(findBy(JKU_FORM_CONTENT_PANEL),this);
     }
 

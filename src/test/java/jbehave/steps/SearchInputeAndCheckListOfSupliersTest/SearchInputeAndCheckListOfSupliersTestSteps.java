@@ -4,6 +4,7 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
 import ru.tinkoff.structure.core.pages.JkhPaymentPage;
+import ru.tinkoff.structure.core.pages.JkuMoscowPage;
 import ru.tinkoff.structure.core.pages.PaymentsPage;
 import ru.tinkoff.structure.core.pages.StartPage;
 import ru.tinkoff.structure.core.panels.JkhPaymentPage.JkhPaymentContentPanel;
@@ -12,6 +13,7 @@ public class SearchInputeAndCheckListOfSupliersTestSteps extends ScenarioSteps {
 
     private StartPage startPage;
     private PaymentsPage paymentsPage;
+    private JkuMoscowPage jkuMoscowPage;
     private final static String saveFind = "ЖКУ-Москва";
 
     public SearchInputeAndCheckListOfSupliersTestSteps(final Pages pages) {
@@ -38,12 +40,12 @@ public class SearchInputeAndCheckListOfSupliersTestSteps extends ScenarioSteps {
 
     @Step
     public void chooseFindingDataFromList() {
-        paymentsPage.getSearchPaymentsPanel().chooseFirst();
+        jkuMoscowPage = paymentsPage.getSearchPaymentsPanel().chooseFirstElementFromListAndGetJkuMoscowPage();
     }
 
     @Step
     public void userCheckThatPageIsSame() {
-        paymentsPage.getSearchPaymentsPanel().chooseFirst().getJkuPaymentContentPanel().pageIsSame();
+        jkuMoscowPage.getJkuPaymentContentPanel().pageIsSame();
     }
 
 

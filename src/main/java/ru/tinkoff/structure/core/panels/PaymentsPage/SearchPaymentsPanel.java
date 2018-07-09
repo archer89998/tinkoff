@@ -27,7 +27,8 @@ public class SearchPaymentsPanel extends AbstractPanel {
         findBy(SEARCH_INPUT).then().clear();
         findBy(SEARCH_INPUT).then().click();
         findBy(SEARCH_INPUT).then().sendKeys(search);
-        WebDriverWait wait = new WebDriverWait(getDriver(),10);
+        WebDriverWait wait = new WebDriverWait(getDriver(),20);
+        wait.until(ExpectedConditions.attributeToBe(By.xpath(POP_UP_RESULT_MENU),"display","block"));
         wait.until(ExpectedConditions.attributeToBe(By.xpath(SEARCH_ICON),"display","inline-block"));
     }
 
@@ -37,7 +38,7 @@ public class SearchPaymentsPanel extends AbstractPanel {
         return findBy(FIRST_ELLEMENT_FROM_LIST).getText();
     }
 
-    public JkuMoscowPage chooseFirst(){
+    public JkuMoscowPage chooseFirstElementFromListAndGetJkuMoscowPage(){
         WebDriverWait wait = new WebDriverWait(getDriver(),10);
         wait.until(ExpectedConditions.attributeToBe(By.xpath(MAIN_PAGE_BLOCK),"overflow","visible"));
         findBy(FIRST_ELLEMENT_FROM_LIST).then().click();
