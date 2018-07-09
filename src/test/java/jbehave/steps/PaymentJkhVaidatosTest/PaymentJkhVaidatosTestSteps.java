@@ -49,19 +49,22 @@ public class PaymentJkhVaidatosTestSteps extends ScenarioSteps {
 
     @Step
     public boolean checkInvalidDataErrorsequiredFillInFields() {
-        ArrayList<Boolean> resulr = new ArrayList<>();
-        resulr.add(jkuMoscowPage.getJkuPaymentContentPanel().biggerMaxLimitValuuFillInError());
-        resulr.add(jkuMoscowPage.getJkuPaymentContentPanel().lesserZeroLimitValuuFillInError());
-        resulr.add(jkuMoscowPage.getJkuPaymentContentPanel().lesserMinLimitValuuFillInError());
-        resulr.add(jkuMoscowPage.getJkuPaymentContentPanel().emptyRequiredFields());
-        resulr.add(jkuMoscowPage.getJkuPaymentContentPanel().dateValuuFillInError());
-        resulr.add(jkuMoscowPage.getJkuPaymentContentPanel().codeValuuFillInError());
-        for (Boolean res:resulr
-             ) {
-            if(!res)
-                return true;
+
+        ArrayList<Boolean> result = new ArrayList<>();
+        result.add(jkuMoscowPage.getJkuPaymentContentPanel().emptyRequiredFields());
+        result.add(jkuMoscowPage.getJkuPaymentContentPanel().codeValuuFillInError());
+        result.add(jkuMoscowPage.getJkuPaymentContentPanel().dateValuuFillInError());
+        result.add(jkuMoscowPage.getJkuPaymentContentPanel().biggerMaxLimitValuuFillInError());
+        result.add(jkuMoscowPage.getJkuPaymentContentPanel().lesserZeroLimitValuuFillInError());
+        result.add(jkuMoscowPage.getJkuPaymentContentPanel().lesserMinLimitValuuFillInError());
+
+
+        for (Boolean res : result
+                ) {
+            if (!res)
+                return false;
         }
-        return false;
+        return true;
     }
 
 }
